@@ -50,14 +50,21 @@ export default async function CompanyPage({ params }: Params) {
         <section className="mt-12">
           <h2 className="text-2xl font-bold mb-6">Projects</h2>
           {projects.length ? (
-            <div className="space-y-4">
+            <ul className="list-disc pl-6 space-y-3">
               {projects.map((p, i) => (
-                <div key={p.title ?? i} className="border-l-2 border-primary pl-4 py-2">
-                  {p.title && <h3 className="font-semibold text-foreground mb-1">{p.title}</h3>}
-                  <p className="text-sm text-muted-foreground leading-relaxed">{p.description}</p>
-                </div>
+                <li
+                  key={p.title ?? i}
+                  className="text-sm text-muted-foreground leading-relaxed"
+                >
+                  {p.title && (
+                    <span className="font-semibold text-foreground">
+                      {p.title}:{" "}
+                    </span>
+                  )}
+                  {p.description}
+                </li>
               ))}
-            </div>
+            </ul>
           ) : (
             <p className="text-sm text-muted-foreground">No projects listed.</p>
           )}

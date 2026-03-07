@@ -195,22 +195,124 @@ export const resumeData = {
       bulletPoints: [],
       awards: [],
       projects: [
-        { description: "Researched and selected machine learning models based on data characteristics." },
-        { description: "Prepared high-quality datasets aligned to project outcomes for effective model training." },
-        { description: "Developed and fine-tuned deep learning models for CV and NLP use cases." },
-        { description: "Implemented LLM-based business clustering to organize unstructured data effectively." },
-        { description: "Reached 95% clustering accuracy by combining K-means with Llama and Mistral models." },
-        { description: "Used transfer learning and domain adaptation to improve classification of financial documents." },
-        { description: "Built POCs for GPT-4 Vision in image recognition, object detection, and document text extraction." },
-        { description: "Fine-tuned LLMs for open-book QA datasets using QLoRA and PEFT in Python." },
-        { description: "Applied instruction tuning and 4-bit quantization workflows for efficient single-GPU training." },
-        { description: "Built scalable LLM applications with LangChain and advanced RAG pipelines." },
-        { description: "Implemented healthcare expert search with GPT-4 and Pinecone for contextual retrieval." },
-        { description: "Delivered robust financial document classification and extraction solutions with transformers." },
-        { description: "Built invoice parsing pipelines and OCR-based extraction using Tesseract." },
-        { description: "Implemented unsupervised text clustering and website content summarization pipelines." },
-        { description: "Trained and deployed object segmentation models in Dockerized production workflows." },
-      ],
+      {
+        description:
+          "Researched and selected appropriate machine learning models based on data characteristics.",
+      },
+      {
+        description:
+          "Prepared high-quality datasets tailored for effective model training, ensuring alignment with project goals.",
+      },
+      {
+        description:
+          "Developed and fine-tuned deep learning models for diverse applications, including computer vision and natural language processing tasks.",
+      },
+      {
+        description:
+          "Integrated business clustering using Language Model (LLM) techniques to categorize and organize unstructured data effectively.",
+      },
+      {
+        description:
+          "Achieved 95% accuracy in business clustering by combining K-means clustering algorithms with LLM capabilities (Llama-3, Mistral LLM), ensuring precise categorization of diverse business data.",
+      },
+      {
+        description:
+          "Leveraged LLM's contextual understanding to enhance clustering accuracy and provide nuanced insights into business data relationships.",
+      },
+      {
+        description:
+          "Utilized transfer learning and domain-specific knowledge to refine the Mistral model's ability to extract relevant information, classify data into specified categories, and derive actionable insights from financial documents.",
+      },
+      {
+        description:
+          "Designed and implemented a POC to demonstrate the effectiveness of GPT-4 Vision API in scenarios including image recognition, object detection, and text extraction from documents.",
+      },
+      {
+        description:
+          "Led fine-tuning of a Language Model (LLM) for Generative Question-Answering datasets using QLORA and PEFT in Python, improving precision and relevance.",
+      },
+      {
+        description:
+          "Familiar with fine-tuning Llama2 and Falcon models as per business requirements.",
+      },
+      {
+        description:
+          "Fine-tuned Llama2 model with instruction tuning, quantizing pretrained LLM to 4 bits and using small adaptors on a single GPU.",
+      },
+      {
+        description:
+          "Experienced in building scalable applications with LLMs using frameworks such as LangChain.",
+      },
+      {
+        description:
+          "Implemented RAG techniques with vector databases like ChromaDB and GPT-4 models for Proof of Concept (POC).",
+      },
+      {
+        description:
+          "Expertise in implementing LangChain QA retriever chains for private unstructured document question answering.",
+      },
+      {
+        description:
+          "Implemented advanced RAG system using GPT-4 API for a healthcare expert search engine.",
+      },
+      {
+        description:
+          "Integrated sentiment analysis tools to gauge emotional tone in generated content, providing valuable insights.",
+      },
+      {
+        description:
+          "Integrated Pinecone vector database for efficient information retrieval, enabling tailored healthcare solutions.",
+      },
+      {
+        description:
+          "Implemented document classification for financial documents using deep learning/transformer models, categorizing content into specified client-driven categories.",
+      },
+      {
+        description:
+          "Collaborated with cross-functional teams to implement innovative solutions using transformer models for entity and information extraction tasks.",
+      },
+      {
+        description:
+          "Designed and implemented a robust parsing system for extracting crucial information from invoices.",
+      },
+      {
+        description:
+          "Proficient in unsupervised clustering of text data from website links, enabling meaningful insights and data organization.",
+      },
+      {
+        description:
+          "Conducted text summarization of website content within clustering projects for efficient data analysis.",
+      },
+      {
+        description:
+          "Utilized Python libraries for PDF-to-image conversion, enabling efficient text and image extraction for model training.",
+      },
+      {
+        description:
+          "Demonstrated proficiency in Optical Character Recognition (OCR) using tools like Tesseract to accurately extract text from images and documents.",
+      },
+      {
+        description:
+          "Trained and deployed advanced object segmentation models using deep learning techniques, packaged within Docker containers for scalable production integration.",
+      },
+      {
+        description:
+          "Engaged in continuous model training and retraining to drive consistent performance improvements.",
+      },
+      {
+        description:
+          "Implemented post-processing steps within the machine learning pipeline to ensure and maintain data quality.",
+      },
+      {
+        description:
+          "Collaborated on team-wide initiatives to enhance model development practices, sharing insights and best practices.",
+      },
+      {
+        description:
+          "Integrated optimized models into scalable production workflows, enhancing overall system efficiency.",
+      },
+    ],
+  
       photos: ["/images/forage_award.JPG", "/images/forage_certicate.png"],
     },
 
@@ -218,35 +320,59 @@ export const resumeData = {
       bulletPoints: [],
       awards: [],
       projects: [
-        {
-          description:
-            "Managed complete project lifecycles from model design and experimentation to deployment and maintenance in production.",
-        },
-        {
-          description:
-            "Established CI/CD pipelines using Azure DevOps and Jenkins to improve release reliability.",
-        },
-        {
-          description:
-            "Applied advanced statistical and data-mining methods including random forests and regression models.",
-        },
-        {
-          description:
-            "Deployed recommendation engines in production to improve user engagement and average order value.",
-        },
-        {
-          description:
-            "Optimized Elasticsearch indexing and ingestion pipelines with Logstash for better search analytics.",
-        },
-        {
-          description:
-            "Developed FastAPI services and PySpark UDFs to support scalable inference and business workflows.",
-        },
-        {
-          description:
-            "Built BERT-based sentiment and topic modeling dashboards with Plotly and Power BI.",
-        },
-      ],
+    {
+      description:
+        "Managed full project lifecycles, from designing and experimenting with models to deploying and maintaining production solutions. Played a key role in establishing CI/CD pipelines using Azure DevOps and Jenkins.",
+    },
+    {
+      description:
+        "Applied statistical and data mining techniques like boosting, generalized linear models/regression, random forests, and social network analysis to gain insights from data. Utilized data cleaning, analysis, and visualization methods.",
+    },
+    {
+      description:
+        "Successfully deployed a Recommendation Engine in production, which conditionally suggests menu items based on user history, contributing to increased average order size.",
+    },
+    {
+      description:
+        "Proficiently utilized and optimized Elasticsearch 7.0 indices to store and visualize data, including geo-location queries and mapping. Managed data ingestion into Elasticsearch using Logstash.",
+    },
+    {
+      description:
+        "Implemented Elasticsearch solutions, improving data storage efficiency and data ingestion processes using Logstash.",
+    },
+    {
+      description:
+        "Demonstrated expertise in Kafka usage and CI/CD pipelines via Azure DevOps and Jenkins. Adapted well to dynamic data science project environments following agile methodologies.",
+    },
+    {
+      description:
+        "Experienced with NoSQL technologies like MongoDB and SQLite. Developed APIs using FastAPI for efficient model inferencing and data sharing within the team.",
+    },
+    {
+      description:
+        "Utilized Apache Zeppelin notebook and developed user-defined functions (UDFs) in PySpark to address specific business needs.",
+    },
+    {
+      description:
+        "Leveraged social media data for topic modeling and Twitter sentiment analysis, extracting valuable insights from Twitter data.",
+    },
+    {
+      description:
+        "Hands-on experience with Hugging Face Transformer models, including BERT.",
+    },
+    {
+      description:
+        "Conducted advanced Twitter analysis using state-of-the-art BERT models for sentiment analysis and LDA for topic modeling.",
+    },
+    {
+      description:
+        "Visualized sentiment and topic analysis outcomes using interactive dashboards crafted with Plotly and Power BI.",
+    },
+    {
+      description:
+        "Developed dashboards that provided clear insights into Twitter sentiments and trending topics, enhancing engagement and decision-making.",
+    },
+],
       photos: ["/images/neurapses_award.jpg"],
     },
   },
