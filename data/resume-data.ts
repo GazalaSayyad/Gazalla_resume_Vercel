@@ -66,24 +66,9 @@ export const resumeData = {
   ],
 
   certifications: [
-    {
-      name: "AI-102 Microsoft Certified: Azure AI Engineer Associate",
-      issuer: "Microsoft",
-      date: "2025",
-      
-    },
-    {
-      name: "DP-100 Microsoft Certified: Data Scientist Associate",
-      issuer: "Microsoft",
-      date: "2022",
-      
-    },
-    {
-      name: "AI-100 Microsoft Certified: Azure AI Fundamentals",
-      issuer: "Microsoft",
-      date: "2021",
-     
-    },
+    { name: "AI-102 Microsoft Certified: Azure AI Engineer Associate", issuer: "Microsoft", date: "2025" },
+    { name: "DP-100 Microsoft Certified: Data Scientist Associate", issuer: "Microsoft", date: "2022" },
+    { name: "AI-100 Microsoft Certified: Azure AI Fundamentals", issuer: "Microsoft", date: "2021" },
   ],
 
   projects: [
