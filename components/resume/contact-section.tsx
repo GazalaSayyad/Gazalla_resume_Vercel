@@ -1,6 +1,19 @@
-import { Mail, MapPin, Github, Linkedin, Twitter, Send } from "lucide-react"
+import { Mail, MapPin, Github, Linkedin, Send } from "lucide-react"
 import { resumeData } from "@/data/resume-data"
 import { AnimatedSection } from "./animated-section"
+
+function MediumIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M0 0v24h24V0H0zm13.846 11.324c0 2.607-2.096 4.72-4.68 4.72-2.585 0-4.68-2.113-4.68-4.72 0-2.607 2.095-4.72 4.68-4.72 2.584 0 4.68 2.113 4.68 4.72zm5.135 0c0 2.454-1.048 4.444-2.34 4.444-1.293 0-2.34-1.99-2.34-4.444 0-2.454 1.047-4.444 2.34-4.444 1.292 0 2.34 1.99 2.34 4.444zm1.964 0c0 2.2-.368 3.984-.822 3.984-.454 0-.822-1.784-.822-3.984 0-2.2.368-3.984.822-3.984.454 0 .822 1.784.822 3.984z" />
+    </svg>
+  )
+}
 
 export function ContactSection() {
   const { personal, socials } = resumeData
@@ -66,9 +79,10 @@ export function ContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-secondary text-muted-foreground transition-all hover:border-primary/40 hover:bg-primary/10 hover:text-primary hover:shadow-md hover:shadow-primary/10"
-                  aria-label="Twitter"
+                  aria-label="Medium Blog"
+                  title="Medium Blog"
                 >
-                  <Twitter className="h-5 w-5" />
+                  <MediumIcon className="h-5 w-5" />
                 </a>
               )}
             </div>
