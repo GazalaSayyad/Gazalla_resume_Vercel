@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { MapPin, Mail, Github, Linkedin, FileText, ArrowDown } from "lucide-react"
 import { resumeData } from "@/data/resume-data"
 import { AnimatedSection } from "./animated-section"
@@ -102,15 +103,13 @@ export function HeroSection() {
                   </a>
                 )}
                 {personal.resumePdfUrl && (
-                  <a
-                    href={personal.resumePdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/resume"
                     className="flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-md hover:shadow-primary/20"
                   >
                     <FileText className="h-4 w-4" />
                     Resume PDF
-                  </a>
+                  </Link>
                 )}
               </div>
             </AnimatedSection>

@@ -3,14 +3,15 @@ import Link from "next/link"
 import { resumeData } from "@/data/resume-data"
 
 interface Params {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default async function CompanyPage({ params }: Params) {
-  // params comes in as a Promise in the app router; await before use
   const { slug } = await params
   const job = resumeData.experience.find((e) => e.slug === slug)
-  const details = resumeData.companyDetails?.[slug]
+  const details = resumeData.companyDetails?.[
+    slug as keyof typeof resumeData.companyDetails
+  ]
 
   if (!job) {
     return (
@@ -24,6 +25,15 @@ export default async function CompanyPage({ params }: Params) {
     )
   }
 
+  const bulletPoints: string[] = details?.bulletPoints ?? []
+  const awards: Array<{ title: string; image?: string; description?: string }> =
+    details?.awards ?? []
+  const projects: Array<{ title?: string; description: string }> =
+    details?.projects ?? []
+  const photos: string[] = (details?.photos ?? []).filter(
+    (photo): photo is string => Boolean(photo),
+  )
+
   return (
     <main className="mx-auto max-w-4xl px-6 py-12">
       <Link href="/" className="text-primary hover:underline">
@@ -36,52 +46,12 @@ export default async function CompanyPage({ params }: Params) {
       <p className="mt-2 text-muted-foreground">{job.period}</p>
       <p className="mt-4">{job.description}</p>
 
-      {/* bullet points of work if provided */}
-      {details?.bulletPoints && details.bulletPoints.length > 0 && (
-        <ul className="mt-6 list-disc pl-6 space-y-2">
-          {details.bulletPoints.map((point, i) => (
-            <li key={i} className="text-sm text-muted-foreground">
-              {point}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {/* awards/certifications/images for this company */}
-      {details?.awards && details.awards.length > 0 && (
-        <section className="mt-8">
-          <h2 className="text-2xl font-semibold">Awards & Recognition</h2>
-          <ul className="mt-4 space-y-4">
-            {details.awards.map((a) => (
-              <li key={a.title} className="flex gap-4">
-                {a.image && (
-                  <div className="w-24 h-24 relative flex-shrink-0">
-                    <Image
-                      src={a.image}
-                      alt={a.title}
-                      fill
-                      className="object-cover rounded"
-                    />
-                  </div>
-                )}
-                <div>
-                  <h3 className="font-semibold">{a.title}</h3>
-                  {a.description && (
-                    <p className="text-sm text-muted-foreground">{a.description}</p>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
       {details && (
         <section className="mt-12">
           <h2 className="text-2xl font-bold mb-6">Projects</h2>
-          {details.projects.length ? (
+          {projects.length ? (
             <div className="space-y-4">
-              {details.projects.map((p, i) => (
+              {projects.map((p, i) => (
                 <div key={p.title ?? i} className="border-l-2 border-primary pl-4 py-2">
                   {p.title && <h3 className="font-semibold text-foreground mb-1">{p.title}</h3>}
                   <p className="text-sm text-muted-foreground leading-relaxed">{p.description}</p>
@@ -92,22 +62,66 @@ export default async function CompanyPage({ params }: Params) {
             <p className="text-sm text-muted-foreground">No projects listed.</p>
           )}
 
-          {details.photos.length ? (
+          {bulletPoints.length > 0 && (
+            <div className="mt-12">
+              <h2 className="text-2xl font-bold mb-6">Bullet Points</h2>
+              <ul className="list-disc pl-6 space-y-2">
+                {bulletPoints.map((point, i) => (
+                  <li key={i} className="text-sm text-muted-foreground">
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {photos.length > 0 ? (
             <div className="mt-12">
               <h2 className="text-2xl font-bold mb-6">Photos</h2>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-                {details.photos.map((src, i) => (
+                {photos.map((src, i) => (
                   <div key={i} className="rounded-sm overflow-hidden bg-muted">
-                    <img
+                    <Image
                       src={src}
-                      alt={`photo-${i}`}
-                      className="w-full h-auto object-contain"
+                      alt={`${job.company} photo ${i + 1}`}
+                      width={1200}
+                      height={800}
+                      className="h-auto w-full object-contain"
                     />
                   </div>
                 ))}
               </div>
             </div>
           ) : null}
+
+          {/* awards/certifications/images for this company */}
+          {awards.length > 0 && (
+            <section className="mt-12">
+              <h2 className="text-2xl font-semibold">Awards & Recognition</h2>
+              <ul className="mt-4 space-y-4">
+                {awards.map((a) => (
+                  <li key={a.title} className="flex gap-4">
+                    {a.image && (
+                      <div className="w-24 h-24 relative flex-shrink-0">
+                        <Image
+                          src={a.image}
+                          alt={a.title}
+                          fill
+                          className="object-cover rounded"
+                        />
+                      </div>
+                    )}
+                    <div>
+                      <h3 className="font-semibold">{a.title}</h3>
+                      {a.description && (
+                        <p className="text-sm text-muted-foreground">{a.description}</p>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </section>
       )}
     </main>

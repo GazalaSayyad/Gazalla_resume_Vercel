@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { Download, Home } from "lucide-react"
+import { Home } from "lucide-react"
 import { resumeData } from "@/data/resume-data"
+import { PDFViewer } from "@/components/ui/pdf-viewer"
 
 export default function ResumePage() {
   const { personal } = resumeData
@@ -20,29 +21,10 @@ export default function ResumePage() {
         </Link>
       </div>
 
-      {/* Action Buttons */}
-      {pdfUrl && (
-        <div className="mb-8">
-          <a
-            href={pdfUrl}
-            download
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground hover:bg-primary/90"
-          >
-            <Download className="h-4 w-4" />
-            Download Resume
-          </a>
-        </div>
-      )}
-
       {/* Resume Viewer */}
       {pdfUrl && (
-        <div className="rounded-lg border border-border bg-white overflow-hidden">
-          <iframe
-            src={pdfUrl}
-            width="100%"
-            height="900px"
-            title="Resume Document Viewer"
-          />
+        <div className="h-[80vh] overflow-hidden rounded-lg border border-border bg-card">
+          <PDFViewer pdfUrl={pdfUrl} />
         </div>
       )}
     </main>

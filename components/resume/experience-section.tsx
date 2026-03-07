@@ -1,6 +1,7 @@
 "use client"
 
-import { Briefcase, ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 import { resumeData } from "@/data/resume-data"
 import { AnimatedSection } from "./animated-section"
 
@@ -44,15 +45,13 @@ export function ExperienceSection() {
                     <h3 className="text-base font-semibold text-foreground">
                       {job.role}
                       <span className="text-muted-foreground">{" at "}</span>
-                      <a
-                        href={job.companyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        href={`/experience/${job.slug}`}
                         className="inline-flex items-center gap-1 text-primary transition-colors hover:underline"
                       >
                         {job.company}
                         <ArrowUpRight className="h-3.5 w-3.5" />
-                      </a>
+                      </Link>
                     </h3>
                   </div>
 
